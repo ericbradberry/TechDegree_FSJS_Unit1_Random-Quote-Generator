@@ -54,17 +54,21 @@ function getRandomQuote() {
   return quotes[random];
 };
 
-/*** 
- * Refreshing of quotes function
- * ***/
 
-function refreshQuotes() {
+/*** 
+ * Initially created Function to refresh but learned it wasn't needed. Keeping code only for my records!!!
+ * 
+ function refreshQuotes() {
   getRandomQuote();
   setInterval(getRandomQuote, 3000);
 }
+*/
 
-setTimeout(refreshQuotes, 2000);
-  console.log("Page loaded", new Date());
+/*** 
+ * Refreshing of quotes (setInterval) every ten seconds
+ * ***/
+
+setInterval(printQuote, 10000);
 
 /***
  * `printQuote` function
@@ -72,7 +76,7 @@ setTimeout(refreshQuotes, 2000);
 function printQuote() {
   randomBG();
   let final = getRandomQuote();
-  let html = "<p class='quote'>" + final.quote + "<p class='source'>" + final.source + "<p class='citation'>" + final.citation + "<p class='year'>" + final.year;
+  let html = "<p class='quote'>" + final.quote + "<p class='source'>" + final.source + "<span class='citation'>" + final.citation + "<span class='year'>" + final.year;
 
   document.getElementById('quote-box').innerHTML = html;
 }
@@ -87,7 +91,7 @@ function randomBG() {
   let randomColor3 = Math.floor(Math.random() * 255);
   let color = `rgb(${randomColor1}, ${randomColor2}, ${randomColor3})`;
   document.body.style.background = color;
-  console.log(color);
+
 }
 randomBG();
 
