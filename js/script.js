@@ -79,6 +79,7 @@ function printQuote() {
   let html = "<p class='quote'>" + final.quote + "<p class='source'>" + final.source + "<span class='citation'>" + final.citation + "<span class='year'>" + final.year;
 
   document.getElementById('quote-box').innerHTML = html;
+  console.log("Quote Refreshed!", new Date());
 }
 
 /*** 
